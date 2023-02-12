@@ -40,6 +40,8 @@ class StudentController extends Controller
                 'students' => 'required',
                 'date' => ''
             ]);    
+
+            Attendance::where('created_at', $data['date'])->delete();
     
             foreach ($data['students'] as &$valor) {            
                 Attendance::create([

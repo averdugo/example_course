@@ -50,7 +50,7 @@
     const saveList = async ()=>{
         let data = {
             students:studentsCheck.value,
-            date: moment().format('YYYY-MM-DD')
+            date: date.value
         }
         axios.post('/attendance', data).then(response =>{
             console.log(response)
