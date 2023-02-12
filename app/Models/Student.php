@@ -10,4 +10,13 @@ class Student extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public static function getTableHeaders() {
+        return [
+            [ 'name' => '#',            'field' => 'id' ],
+            [ 'name' => 'First Name',   'field' => 'first_name' ],
+            [ 'name' => 'Last Name',    'field' => 'last_name' ],
+            [ 'name' => 'Email',        'field' => 'email' ]
+        ];
+    }
 }

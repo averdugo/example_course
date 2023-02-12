@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
-
+use Inertia\Inertia;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,5 +13,9 @@ use App\Http\Controllers\StudentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',   [StudentController::class, 'index']);
+Route::get('/students',   [StudentController::class, 'index']);
 Route::post('/attendance', [StudentController::class, 'attendance']);
+
+Route::get('/getAttendance/{date}', [StudentController::class, 'getAttendance']);
+
+Route::get('/',   [StudentController::class, 'view']);

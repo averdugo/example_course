@@ -25,7 +25,7 @@ class StudentManagementTest extends TestCase
     }
 
     public function test_student_list_can_be_retrieved(){
-        $response = $this->get('/');
+        $response = $this->get('/students');
  
         $response
             ->assertStatus(200)
@@ -36,8 +36,8 @@ class StudentManagementTest extends TestCase
     public function test_attendance_can_be_created(){
         
         $response = $this->post('/attendance', [
-            'student_id' => 88283823823,
-            'status'     => true
+            'students' => [88283823823],
+            'date'     => "2023-12-01"
         ]);
 
         $response->assertOk();        
@@ -47,12 +47,12 @@ class StudentManagementTest extends TestCase
 
     public function test_attendace_fails_with_no_studentId(){
         $response = $this->post('/attendance', [
-            'student_id' => null,
-            'status'     => true
+            'students' => null,
+            'date'     => "2023-12-01"
         ]);
 
         $response->assertStatus(500);        
     }
 
-    
+
 }

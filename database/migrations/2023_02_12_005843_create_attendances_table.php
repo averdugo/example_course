@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->integer('student_id');
+            $table->bigInteger('student_id');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });
